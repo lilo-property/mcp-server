@@ -1,0 +1,20 @@
+{
+  "name": "lilo-vacation-rentals",
+  "display_name": "lilo MCP Server",
+  "description": "Vacation rental booking and protection for AI agents. Instant API key, 10 free credits.",
+  "repository": "https://github.com/lilo-property/mcp-server",
+  "homepage": "https://lilo.property",
+  "license": "MIT",
+  "author": {
+    "name": "fricktionless",
+    "url": "https://github.com/frickydev"
+  },
+  "categories": ["travel", "real-estate", "automation"],
+  "endpoints": [
+    {
+      "url": "https://mcp.lilo.property/mcp",
+      "transport": "streamable-http"
+    }
+  ],
+  "tools": 41
+}
