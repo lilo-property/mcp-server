@@ -1,16 +1,3 @@
 {
-  "$schema": "https://glama.ai/mcp/schemas/server.json",
-  "name": "lilo-vacation-rentals",
-  "description": "Vacation rental booking and protection for AI agents",
-  "repository": "https://github.com/lilo-property/mcp-server",
-  "license": "MIT",
-  "author": {
-    "name": "fricktionless"
-  },
-  "categories": ["travel", "real-estate", "automation"],
-  "features": {
-    "tools": true,
-    "resources": false,
-    "prompts": false
-  }
+  "maintainers": ["frickydev"]
 }
