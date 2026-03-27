@@ -1,3 +1,8 @@
 {
-  "maintainers": ["frickydev"]
+  "name": "lilo-mcp-server",
+  "description": "Vacation rental booking and property intelligence for AI agents. 64 tools across discovery, booking, protection, compliance, and operations. 0% commission.",
+  "maintainers": ["lilo-property"],
+  "category": "travel",
+  "tags": ["vacation-rental", "booking", "travel", "accommodation", "direct-booking", "property-intelligence"],
+  "remote": "https://mcp.lilo.property/mcp"
 }

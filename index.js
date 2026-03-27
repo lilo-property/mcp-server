@@ -1,17 +1,17 @@
 #!/usr/bin/env node
 
-// lilo MCP Server - Stdio wrapper for Glama inspection
-// Full server at: https://mcp.lilo.property/mcp
+// lilo MCP Server - STDIO wrapper for registry inspection
+// Full 64-tool server at: https://mcp.lilo.property/mcp
 
 const readline = require('readline');
 
 const TOOLS = [
-  { name: "search_properties", description: "Find vacation rentals by location", inputSchema: { type: "object", properties: { location: { type: "string" } }, required: ["location"] } },
-  { name: "check_availability", description: "Real-time pricing and dates", inputSchema: { type: "object", properties: { property_id: { type: "string" } }, required: ["property_id"] } },
-  { name: "create_booking", description: "Book with instant confirmation", inputSchema: { type: "object", properties: { property_id: { type: "string" } }, required: ["property_id"] } },
-  { name: "check_guest_risk_score", description: "Pre-booking risk assessment", inputSchema: { type: "object", properties: { guest_email: { type: "string" } }, required: ["guest_email"] } },
-  { name: "detect_extortion_pattern", description: "AI threat detection", inputSchema: { type: "object", properties: { message: { type: "string" } }, required: ["message"] } },
-  { name: "get_squatter_risk", description: "50-state tenancy analysis", inputSchema: { type: "object", properties: { state: { type: "string" } }, required: ["state"] } }
+  { name: "search_properties", description: "Search vacation rental properties by location, dates, and amenities", inputSchema: { type: "object", properties: { location: { type: "string", description: "City, state, or address to search" } }, required: ["location"] } },
+  { name: "check_availability", description: "Check real-time availability and pricing for a property", inputSchema: { type: "object", properties: { property_id: { type: "string" }, check_in_date: { type: "string" }, check_out_date: { type: "string" } }, required: ["property_id", "check_in_date", "check_out_date"] } },
+  { name: "create_booking", description: "Create a direct booking for a vacation rental property", inputSchema: { type: "object", properties: { property_id: { type: "string" }, guest_name: { type: "string" }, guest_email: { type: "string" }, check_in_date: { type: "string" }, check_out_date: { type: "string" } }, required: ["property_id", "guest_name", "guest_email", "check_in_date", "check_out_date"] } },
+  { name: "get_property", description: "Get detailed information about a vacation rental property", inputSchema: { type: "object", properties: { property_id: { type: "string" } }, required: ["property_id"] } },
+  { name: "get_trust_certificate", description: "Get verified property credentials and trust data", inputSchema: { type: "object", properties: { lilo_code: { type: "string" } }, required: ["lilo_code"] } },
+  { name: "verify_evidence", description: "Verify an independently verified evidence record", inputSchema: { type: "object", properties: { evidence_id: { type: "string" } }, required: ["evidence_id"] } }
 ];
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: false });
@@ -41,9 +41,9 @@ rl.on('line', (line) => {
           content: [{
             type: "text",
             text: JSON.stringify({
-              message: "Connect to https://mcp.lilo.property/mcp for full functionality",
-              tool: params?.name,
-              get_api_key: 'curl -X POST https://mcp.lilo.property/developers/key -H "Content-Type: application/json" -d \'{"email":"you@example.com"}\''
+              message: "This is a preview. Connect to the full server for 64 tools.",
+              remote_url: "https://mcp.lilo.property/mcp",
+              tool: params?.name
             })
           }]
         };
@@ -57,7 +57,7 @@ rl.on('line', (line) => {
         process.stdout.write(JSON.stringify({
           jsonrpc: "2.0",
           id,
-          error: { code: -32601, message: `Method not found: ${method}` }
+          error: { code: -32601, message: "Method not found" }
         }) + '\n');
         return;
     }

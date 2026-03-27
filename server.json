@@ -1,0 +1,16 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.lilo-property/mcp-server",
+  "description": "Vacation rental booking and property intelligence for AI agents. 64 tools across discovery, booking, protection, compliance, and operations. 0% commission.",
+  "repository": {
+    "url": "https://github.com/lilo-property/mcp-server",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://mcp.lilo.property/mcp"
+    }
+  ]
+}
